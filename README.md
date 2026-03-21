@@ -79,7 +79,7 @@ Para simular um timeout na comunicação entre serviços execute o seguinte:
         Thread.sleep(5000);
 ```
 
-![Vídeo demotrando alterações](./imagens/alterando_movies.gif)
+![Vídeo demotrando alterações](./images/alterando_movies.gif)
 
 Quando executar uma requisição no endpoint [http://localhost:8082/api/v1/ratings](http://localhost:8081/api/v1/ratings) isso irá ocorrer:
 
