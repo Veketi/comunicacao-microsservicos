@@ -1,0 +1,22 @@
+services:
+  movies:
+    build: ./movies
+    container_name: movies
+    ports:
+      - "8081:8081"
+    networks:
+      - movie-ratings-network
+
+  ratings:
+    build: ./ratings
+    container_name: ratings
+    ports:
+      - "8082:8082"
+    depends_on:
+      - movies
+    networks:
+      - movie-ratings-network
+
+networks:
+  movie-ratings-network:
+    driver: bridge
