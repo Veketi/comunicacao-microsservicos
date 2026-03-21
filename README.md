@@ -12,7 +12,7 @@ Para rodar o projeto é necessário executar:
     docker compose up --build
 ```
 
-![Vídeo rodando o projeto.](./images/rodando_projeto.webp)
+![Vídeo rodando o projeto.](./images/rodando_projeto.gif)
 
 Após rodar será possível acessar dois endpoints:
 
@@ -34,7 +34,7 @@ Para simular uma falha de comunicação execute o seguinte:
     docker run -p 8082:8082 ratings
 ```
 
-![Vídeo da simulação de falha de comunicação](./images/simulacao_falha_comunicacao.webp)
+![Vídeo da simulação de falha de comunicação](./images/simulacao_falha_comunicacao.gif)
 
 Quando tentar acessar o endpoint [http://localhost:8082/api/v1/ratings](http://localhost:8081/api/v1/ratings) você terá essa resposta:
 
@@ -79,7 +79,7 @@ Para simular um timeout na comunicação entre serviços execute o seguinte:
         Thread.sleep(5000);
 ```
 
-![Vídeo demotrando alterações](./imagens/alterando_movies.webp)
+![Vídeo demotrando alterações](./imagens/alterando_movies.gif)
 
 Quando executar uma requisição no endpoint [http://localhost:8082/api/v1/ratings](http://localhost:8081/api/v1/ratings) isso irá ocorrer:
 
