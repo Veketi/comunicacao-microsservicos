@@ -60,10 +60,7 @@ Thread.sleep(5000);
 ### 3.2. Rodar novamente e fazer uma requsição para ratings:
 
 ```bash
-#Entre na raiz do projeto:
-../
-
-#Execute a aplicação novamente:
+docker compse down
 docker compose up --build
 ```
 
