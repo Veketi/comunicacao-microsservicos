@@ -20,7 +20,7 @@ Após rodar será possível acessar dois endpoints:
 
 ![Endpoit /api/v1/movie/{id}](./images/endpoint_movie.png)
 
-- [http://localhost:8082/api/v1/ratings](http://localhost:8081/api/v1/ratings)
+- [http://localhost:8082/api/v1/ratings](http://localhost:8082/api/v1/ratings)
 
 ![Endpoit /api/v1/details](./images/endpoint_details.png)
 
@@ -29,14 +29,10 @@ Após rodar será possível acessar dois endpoints:
 Para simular uma falha de comunicação execute o seguinte:
 
 ```bash
-cd ./ratings
-docker build -t ratings .
-docker run -p 8082:8082 ratings
+docker compose stop movies
 ```
 
-![Vídeo da simulação de falha de comunicação](./images/simulacao_falha_comunicacao.gif)
-
-Quando tentar acessar o endpoint [http://localhost:8082/api/v1/ratings](http://localhost:8081/api/v1/ratings) você terá essa resposta:
+Quando tentar acessar o endpoint [http://localhost:8082/api/v1/ratings](http://localhost:8082/api/v1/ratings) você terá essa resposta:
 
 ![Resposta da falha de comunicação](./images/falha_comunicacao.png)
 
@@ -46,29 +42,9 @@ Para simular um timeout na comunicação entre serviços execute o seguinte:
 
 ### 3.1. Alterar o serviço movies:
 
--  Acesse a pasta do serviço movies e abra no seu editor de texto ou IDE favorita:
+-  Acesse o projeto no seu editor de texto ou IDE favorita.
 
-```bash
-# Se estiver na pasta raiz:
-./movies
-
-#Se estiver na pasta do serviço ratings:
-../movies
-
-# VS Code
-code .
-
-# Vim 
-vim .
-
-# NeoVim
-nvim .
-
-# Emacs
-emacs
-```
-
-- Na pasta `/src/main/java/edu/ifsp/movies/controller/` altere o arquivo `MovieController.java`:
+- Na pasta ` /movies/src/main/java/edu/ifsp/movies/controller/` altere o arquivo `MovieController.java`:
 
 ```java
 // Adicione "throws InterruptedException" na assinatura do método:
@@ -91,7 +67,7 @@ Thread.sleep(5000);
 docker compose up --build
 ```
 
-Quando executar uma requisição no endpoint [http://localhost:8082/api/v1/ratings](http://localhost:8081/api/v1/ratings) isso irá ocorrer:
+Quando executar uma requisição no endpoint [http://localhost:8082/api/v1/ratings](http://localhost:8082/api/v1/ratings) isso irá ocorrer:
 
 ![Imagem do timeout](./images/timeout.png)
 
